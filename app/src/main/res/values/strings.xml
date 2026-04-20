@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">DWAS</string>
+    <string name="login_title">LOG IN TO DWAS</string>
+    <string name="signup_title">JOIN DWAS</string>
+    <string name="email_label">Email address</string>
+    <string name="password_label">Password</string>
+    <string name="first_name_label">First name</string>
+    <string name="last_name_label">Last name</string>
+    <string name="continue_btn">Continue</string>
+    <string name="login_btn">Log in</string>
+    <string name="signup_btn">JOIN DWAS</string>
+    <string name="or_text">or</string>
+    <string name="google_login">Continue with Google</string>
+    <string name="apple_login">Continue with Apple</string>
+    <string name="no_account">Don\'t have an account? Sign up</string>
+    <string name="have_account">Already have an account? Log in</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="profile_desc">Profile</string>
+    <string name="send_desc">Send</string>
+</resources>
