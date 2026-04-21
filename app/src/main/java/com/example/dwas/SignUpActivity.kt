@@ -2,17 +2,14 @@ package com.example.dwas
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Patterns
 import android.view.View
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import java.util.Locale
+import java.util.*
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -29,8 +26,9 @@ class SignUpActivity : AppCompatActivity() {
         val firstNameEditText = findViewById<EditText>(R.id.firstNameEditText)
         val lastNameEditText = findViewById<EditText>(R.id.lastNameEditText)
         val emailEditText = findViewById<EditText>(R.id.emailEditText)
-        val ageEditText = findViewById<EditText>(R.id.ageEditText)
-        val genderEditText = findViewById<EditText>(R.id.genderEditText)
+        val ageAutoComplete = findViewById<AutoCompleteTextView>(R.id.ageAutoComplete)
+        val genderAutoComplete = findViewById<AutoCompleteTextView>(R.id.genderAutoComplete)
+        val countryCodeAutoComplete = findViewById<AutoCompleteTextView>(R.id.countryCodeAutoComplete)
         val phoneEditText = findViewById<EditText>(R.id.phoneEditText)
         val passwordEditText = findViewById<EditText>(R.id.passwordEditText)
         val employeeRadio = findViewById<RadioButton>(R.id.employeeRadio)
@@ -38,6 +36,21 @@ class SignUpActivity : AppCompatActivity() {
         val signupButton = findViewById<MaterialButton>(R.id.signupButton)
         val roleRadioGroup = findViewById<RadioGroup>(R.id.roleRadioGroup)
         val tvSignIn = findViewById<TextView>(R.id.tvSignIn)
+
+        // Populate Gender Dropdown
+        val genders = arrayOf("Male", "Female", "Other")
+        val genderAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, genders)
+        genderAutoComplete.setAdapter(genderAdapter)
+
+        // Populate Age Dropdown (20 to 80)
+        val ages = (20..80).map { it.toString() }.toTypedArray()
+        val ageAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, ages)
+        ageAutoComplete.setAdapter(ageAdapter)
+
+        // Populate Country Codes
+        val countryCodes = arrayOf("+91 (India)", "+1 (USA)", "+44 (UK)", "+971 (UAE)", "+61 (Australia)")
+        val countryAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, countryCodes)
+        countryCodeAutoComplete.setAdapter(countryAdapter)
 
         roleRadioGroup.setOnCheckedChangeListener { _, checkedId ->
             if (checkedId == R.id.employeeRadio) {
@@ -52,26 +65,28 @@ class SignUpActivity : AppCompatActivity() {
             val password = passwordEditText.text.toString().trim()
             val firstNameRaw = firstNameEditText.text.toString().trim()
             val lastNameRaw = lastNameEditText.text.toString().trim()
-            val ageStr = ageEditText.text.toString().trim()
-            val gender = genderEditText.text.toString().trim()
-            val phone = phoneEditText.text.toString().trim()
+            val ageStr = ageAutoComplete.text.toString().trim()
+            val gender = genderAutoComplete.text.toString().trim()
+            val countryCodeRaw = countryCodeAutoComplete.text.toString()
+            val countryCode = if (countryCodeRaw.contains(" ")) countryCodeRaw.split(" ")[0] else countryCodeRaw
+            val phone = countryCode + phoneEditText.text.toString().trim()
             val supervisorId = supervisorIdEditText.text.toString().trim()
             val isEmployee = employeeRadio.isChecked
             val role = if (isEmployee) "employee" else "supervisor"
 
-            // Convert names to Sentence Case
-            val firstName = firstNameRaw.lowercase(Locale.ROOT).replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.ROOT) else it.toString() }
-            val lastName = lastNameRaw.lowercase(Locale.ROOT).replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.ROOT) else it.toString() }
-
-            // Validation
-            if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || ageStr.isEmpty() || gender.isEmpty()) {
+            // Validation logic
+            if (firstNameRaw.isEmpty() || lastNameRaw.isEmpty() || email.isEmpty() || password.isEmpty() || ageStr.isEmpty() || gender.isEmpty()) {
                 Toast.makeText(this, "Please fill all required fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Specific Password Requirement Validation
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(this, "Please enter a valid email address", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             if (!isPasswordValid(password)) {
-                Toast.makeText(this, "Password must contain at least 6 letters, 2 numbers, and a special character", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Password requires: 6+ chars, 2+ digits, 1+ special char", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
 
@@ -80,8 +95,11 @@ class SignUpActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Disable button to prevent double-click
             signupButton.isEnabled = false
+
+            // Convert names to Sentence Case
+            val firstName = firstNameRaw.lowercase(Locale.ROOT).replaceFirstChar { it.uppercase(Locale.ROOT) }
+            val lastName = lastNameRaw.lowercase(Locale.ROOT).replaceFirstChar { it.uppercase(Locale.ROOT) }
 
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
@@ -103,10 +121,10 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun isPasswordValid(password: String): Boolean {
-        val letterCount = password.count { it.isLetter() }
-        val digitCount = password.count { it.isDigit() }
-        val specialCount = password.count { !it.isLetterOrDigit() && !it.isWhitespace() }
-        return letterCount >= 6 && digitCount >= 2 && specialCount >= 1
+        if (password.length < 6) return false
+        val digits = password.count { it.isDigit() }
+        val special = password.count { !it.isLetterOrDigit() && !it.isWhitespace() }
+        return digits >= 2 && special >= 1
     }
 
     private fun saveUserToFirestore(uid: String, email: String, role: String, supervisorId: String, first: String, last: String, age: Int, gender: String, phone: String) {

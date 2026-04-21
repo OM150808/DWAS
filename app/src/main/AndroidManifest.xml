@@ -23,6 +23,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DWAS">
         <activity
+            android:name=".NotificationActivity"
+            android:exported="false"
+            android:label="Notifications" />
+        <activity
             android:name=".EmployeeDashboardActivity"
             android:exported="false" />
         <activity

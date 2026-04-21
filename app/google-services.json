@@ -12,7 +12,12 @@
           "package_name": "com.example.dwas"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "271366869642-your-actual-client-id.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBj_ZmZJJKsP_CdxssbSPmTCCXDgiCgR6I"

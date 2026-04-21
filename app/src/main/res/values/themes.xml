@@ -14,13 +14,13 @@
         <item name="colorOnSecondaryContainer">@color/onSecondaryContainer</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorSurface</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/palette_accent</item>
+        <item name="android:windowLightStatusBar">false</item>
 
         <!-- Navigation bar color. -->
-        <item name="android:navigationBarColor">?attr/colorSurface</item>
+        <item name="android:navigationBarColor">@color/palette_background</item>
 
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">serif</item>
     </style>
 
     <style name="Theme.DWAS" parent="Base.Theme.DWAS" />

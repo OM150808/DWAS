@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Primary Colors -->
-    <color name="primary">#303F9F</color>
+    <!-- New Unified Palette -->
+    <color name="palette_primary">#6A89A7</color>
+    <color name="palette_secondary">#88BDF2</color>
+    <color name="palette_background">#BDDDFC</color>
+    <color name="palette_accent">#000000</color>
+
+    <!-- Base Semantic Colors mapped to Palette -->
+    <color name="primary">#6A89A7</color>
     <color name="onPrimary">#FFFFFF</color>
-    <color name="primaryContainer">#E8EAF6</color>
-    <color name="onPrimaryContainer">#1A237E</color>
+    <color name="primaryContainer">#BDDDFC</color>
+    <color name="onPrimaryContainer">#000000</color>
 
-    <!-- Secondary Colors -->
-    <color name="secondary">#43A047</color>
+    <color name="secondary">#88BDF2</color>
     <color name="onSecondary">#FFFFFF</color>
-    <color name="secondaryContainer">#E8F5E9</color>
-    <color name="onSecondaryContainer">#1B5E20</color>
+    <color name="secondaryContainer">#BDDDFC</color>
+    <color name="onSecondaryContainer">#000000</color>
 
-    <!-- Neutral Colors -->
-    <color name="background">#F8F9FD</color>
-    <color name="onBackground">#1C1B1F</color>
+    <color name="background">#BDDDFC</color>
+    <color name="onBackground">#000000</color>
     <color name="surface">#FFFFFF</color>
-    <color name="onSurface">#1C1B1F</color>
-    <color name="surfaceVariant">#E7E0EC</color>
-    <color name="onSurfaceVariant">#49454F</color>
-    <color name="outline">#79747E</color>
+    <color name="onSurface">#000000</color>
+    <color name="surfaceVariant">#BDDDFC</color>
+    <color name="onSurfaceVariant">#000000</color>
+    <color name="outline">#6A89A7</color>
 
     <!-- Error Colors -->
     <color name="error">#B3261E</color>
@@ -28,10 +32,15 @@
     <!-- Legacy / Compatibility -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="smarthome_primary">#303F9F</color>
-    <color name="smarthome_bg">#F8F9FD</color>
-    <color name="smarthome_text_main">#1C1B1F</color>
-    <color name="smarthome_text_sub">#49454F</color>
-    <color name="smarthome_divider">#CAC4D0</color>
+
+    <!-- Smarthome compatibility mapping -->
+    <color name="smarthome_primary">#004D40</color>
+    <color name="smarthome_bg">#F5F9F9</color>
+    <color name="smarthome_header">#003D33</color>
+    <color name="smarthome_card_energy">#D1EAE5</color>
+    <color name="smarthome_card_device">#E0F2F1</color>
+    <color name="smarthome_text_main">#004D40</color>
+    <color name="smarthome_text_sub">#757575</color>
+    <color name="smarthome_divider">#B2DFDB</color>
     <color name="smarthome_card_bg">#FFFFFF</color>
 </resources>

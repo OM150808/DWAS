@@ -17,4 +17,5 @@
     <string name="forgot_password">Forgot password?</string>
     <string name="profile_desc">Profile</string>
     <string name="send_desc">Send</string>
+    <string name="default_web_client_id" translatable="false">271366869642-your-actual-client-id.apps.googleusercontent.com</string>
 </resources>

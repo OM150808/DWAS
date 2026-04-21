@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/smarthome_bg">
+    android:background="@color/palette_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/signup_title"
-            android:textColor="@color/smarthome_text_main"
+            android:textColor="@color/palette_accent"
             android:textSize="28sp"
             android:fontFamily="sans-serif-black"
             android:letterSpacing="0.02"
@@ -39,6 +39,8 @@
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
                 android:hint="@string/first_name_label"
+                app:placeholderText="Joseph"
+                app:helperText="Example: Joseph"
                 app:boxCornerRadiusBottomEnd="12dp"
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
@@ -58,6 +60,8 @@
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
                 android:hint="@string/last_name_label"
+                app:placeholderText="Kumar"
+                app:helperText="Example: Kumar"
                 app:boxCornerRadiusBottomEnd="12dp"
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
@@ -78,6 +82,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/email_label"
+            app:placeholderText="abc@gmail.com"
+            app:helperText="Example: abc@gmail.com"
             app:boxCornerRadiusBottomEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
@@ -100,7 +106,7 @@
             app:layout_constraintTop_toBottomOf="@id/tilEmail">
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -111,15 +117,15 @@
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusTopStart="12dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/ageEditText"
+                <AutoCompleteTextView
+                    android:id="@+id/ageAutoComplete"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number" />
+                    android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.5"
@@ -130,33 +136,60 @@
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusTopStart="12dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/genderEditText"
+                <AutoCompleteTextView
+                    android:id="@+id/genderAutoComplete"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text" />
+                    android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilPhone"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <LinearLayout
+            android:id="@+id/llPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="Phone Number"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusTopStart="12dp"
+            android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/llBio">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phoneEditText"
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:inputType="phone" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginEnd="8dp"
+                android:hint="Code"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/countryCodeAutoComplete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:text="+91" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPhone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Phone Number"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phoneEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilPassword"
@@ -165,12 +198,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/password_label"
+            app:helperText="Min 6 chars, 2 digits, 1 special char"
             app:boxCornerRadiusBottomEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
             app:passwordToggleEnabled="true"
-            app:layout_constraintTop_toBottomOf="@id/tilPhone">
+            app:layout_constraintTop_toBottomOf="@id/llPhone">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordEditText"
@@ -194,14 +228,14 @@
                 android:layout_height="wrap_content"
                 android:text="Employee"
                 android:checked="true"
-                android:buttonTint="@color/smarthome_primary" />
+                android:buttonTint="@color/palette_primary" />
 
             <RadioButton
                 android:id="@+id/supervisorRadio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Supervisor"
-                android:buttonTint="@color/smarthome_primary" />
+                android:buttonTint="@color/palette_primary" />
         </RadioGroup>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -211,6 +245,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:hint="Supervisor ID"
+            app:placeholderText="SUP12345"
+            app:helperText="Example: SUP12345"
             app:boxCornerRadiusBottomEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
@@ -234,7 +270,7 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:cornerRadius="12dp"
-            app:backgroundTint="@color/smarthome_primary"
+            app:backgroundTint="@color/palette_primary"
             app:layout_constraintTop_toBottomOf="@id/tilSupervisorId" />
 
         <TextView
@@ -243,7 +279,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/have_account"
-            android:textColor="@color/smarthome_text_sub"
+            android:textColor="@color/palette_accent"
             android:clickable="true"
             android:focusable="true"
             app:layout_constraintEnd_toEndOf="parent"

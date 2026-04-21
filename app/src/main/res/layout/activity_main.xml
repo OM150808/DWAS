@@ -1,199 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FB">
+    android:background="@color/palette_background">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        app:elevation="0dp">
+        android:indeterminate="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="24dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Loading your dashboard..."
+        android:textColor="@color/palette_accent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressBar" />
 
-            <TextView
-                android:id="@+id/tvHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DWAS HOME"
-                android:textColor="#1A1C1E"
-                android:textSize="20sp"
-                android:fontFamily="sans-serif-black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardProfile"
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                app:cardCornerRadius="22dp"
-                app:cardElevation="2dp"
-                app:strokeWidth="0dp"
-                app:layout_constraintBottom_toBottomOf="@id/tvHeader"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvHeader">
-
-                <ImageView
-                    android:id="@+id/btnProfile"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerInside"
-                    android:padding="8dp"
-                    android:src="@android:drawable/ic_menu_myplaces"
-                    android:contentDescription="Profile" />
-            </com.google.android.material.card.MaterialCardView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="24dp"
-            android:paddingBottom="100dp">
-
-            <TextView
-                android:id="@+id/tvGreeting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Hi User,\nGood Day"
-                android:textColor="#1A1C1E"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium" />
-
-            <!-- Profile Details Section (Initially Hidden) -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/layoutProfileDetails"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:visibility="gone"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                app:contentPadding="16dp"
-                app:strokeWidth="0dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="My Profile"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#1A1C1E" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginVertical="12dp"
-                        android:background="#EEEEEE" />
-
-                    <TextView
-                        android:id="@+id/tvProfileName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Name: Loading..."
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/tvProfileEmail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Email: Loading..."
-                        android:textSize="16sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="8dp">
-
-                        <TextView
-                            android:id="@+id/tvProfileAge"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Age: --"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:id="@+id/tvProfileGender"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1.5"
-                            android:text="Gender: --"
-                            android:textSize="16sp" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/tvProfilePhone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Phone: --"
-                        android:textSize="16sp" />
-
-                    <Button
-                        android:id="@+id/btnLogout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="Logout"
-                        android:backgroundTint="#FF5252"
-                        android:textColor="@android:color/white" />
-
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Your Dashboard"
-                android:textColor="#757575"
-                android:textSize="14sp"
-                android:fontFamily="sans-serif-medium"
-                android:textAllCaps="true"
-                android:letterSpacing="0.1" />
-
-            <!-- Placeholder for other dashboard content -->
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="16dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:strokeColor="#E0E0E0"
-                app:strokeWidth="1dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Recent Activities"
-                    android:textColor="#BDBDBD" />
-            </com.google.android.material.card.MaterialCardView>
-
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
