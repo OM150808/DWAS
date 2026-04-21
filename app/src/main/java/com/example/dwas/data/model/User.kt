@@ -6,6 +6,10 @@ data class User(
     val role: String = "",
     val firstName: String = "",
     val lastName: String = "",
+    val age: Int? = null,
+    val gender: String? = null,
+    val phoneNumber: String? = null,
+    val address: String? = null,
     val supervisorId: String? = null
 ) {
     val fullName: String

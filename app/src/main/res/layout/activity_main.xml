@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/smarthome_bg">
+    android:background="#F5F7FB">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -22,9 +22,9 @@
                 android:id="@+id/tvHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="My Home"
-                android:textColor="@color/smarthome_text_main"
-                android:textSize="28sp"
+                android:text="DWAS HOME"
+                android:textColor="#1A1C1E"
+                android:textSize="20sp"
                 android:fontFamily="sans-serif-black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +34,7 @@
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 app:cardCornerRadius="22dp"
-                app:cardElevation="0dp"
+                app:cardElevation="2dp"
                 app:strokeWidth="0dp"
                 app:layout_constraintBottom_toBottomOf="@id/tvHeader"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -44,10 +44,10 @@
                     android:id="@+id/btnProfile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@android:drawable/ic_menu_my_calendar"
-                    android:contentDescription="@string/profile_desc"
-                    app:tint="@color/smarthome_primary" />
+                    android:scaleType="centerInside"
+                    android:padding="8dp"
+                    android:src="@android:drawable/ic_menu_myplaces"
+                    android:contentDescription="Profile" />
             </com.google.android.material.card.MaterialCardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -70,73 +70,130 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Welcome home,\nAlex"
-                android:textColor="@color/smarthome_text_main"
-                android:textSize="24sp"
+                android:text="Hi User,\nGood Day"
+                android:textColor="#1A1C1E"
+                android:textSize="28sp"
                 android:fontFamily="sans-serif-medium" />
+
+            <!-- Profile Details Section (Initially Hidden) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/layoutProfileDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:visibility="gone"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:contentPadding="16dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="My Profile"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#1A1C1E" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="12dp"
+                        android:background="#EEEEEE" />
+
+                    <TextView
+                        android:id="@+id/tvProfileName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name: Loading..."
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tvProfileEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Email: Loading..."
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:id="@+id/tvProfileAge"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Age: --"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/tvProfileGender"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:text="Gender: --"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvProfilePhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Phone: --"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/btnLogout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Logout"
+                        android:backgroundTint="#FF5252"
+                        android:textColor="@android:color/white" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Quick Controls"
-                android:textColor="@color/smarthome_text_sub"
+                android:layout_marginTop="32dp"
+                android:text="Your Dashboard"
+                android:textColor="#757575"
                 android:textSize="14sp"
                 android:fontFamily="sans-serif-medium"
                 android:textAllCaps="true"
                 android:letterSpacing="0.1" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvSuggestions"
+            <!-- Placeholder for other dashboard content -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 android:layout_marginTop="16dp"
-                android:nestedScrollingEnabled="false"
-                tools:listitem="@android:layout/simple_list_item_1" />
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E0E0E0"
+                app:strokeWidth="1dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Recent Activities"
+                    android:textColor="#BDBDBD" />
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_margin="20dp"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="8dp"
-        app:strokeWidth="0dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal"
-            android:paddingHorizontal="8dp"
-            android:gravity="center_vertical">
-
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:hint="Ask your assistant..."
-                android:paddingHorizontal="20dp"
-                android:textColor="@color/smarthome_text_main"
-                android:textColorHint="@color/smarthome_text_sub"
-                android:textSize="15sp"
-                android:fontFamily="sans-serif"
-                android:inputType="textShortMessage"
-                android:importantForAutofill="no" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:fabCustomSize="48dp"
-                app:elevation="0dp"
-                android:src="@android:drawable/ic_menu_send"
-                android:contentDescription="@string/send_desc"
-                app:tint="@color/white"
-                app:backgroundTint="@color/smarthome_primary" />
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

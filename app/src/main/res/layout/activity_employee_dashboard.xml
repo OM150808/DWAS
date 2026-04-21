@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@android:drawable/ic_menu_my_calendar"
+            android:src="@drawable/ic_person"
             app:tint="@color/smarthome_primary" />
     </com.google.android.material.card.MaterialCardView>
 
@@ -86,16 +86,18 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogout"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
         android:text="Logout"
-        android:textColor="#FF5252"
+        android:textColor="#FFFFFF"
         android:textAllCaps="false"
         android:fontFamily="sans-serif-medium"
+        app:backgroundTint="#FF5252"
+        app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="32dp" />
+        android:layout_marginBottom="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

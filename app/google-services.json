@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "123456789012",
-    "project_id": "dwas-placeholder",
-    "storage_bucket": "dwas-placeholder.appspot.com"
+    "project_number": "271366869642",
+    "project_id": "dwas-b1f53",
+    "storage_bucket": "dwas-b1f53.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:123456789012:android:0123456789abcdef",
+        "mobilesdk_app_id": "1:271366869642:android:64bf386624a7e596ac9373",
         "android_client_info": {
           "package_name": "com.example.dwas"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "placeholder_api_key"
+          "current_key": "AIzaSyBj_ZmZJJKsP_CdxssbSPmTCCXDgiCgR6I"
         }
       ],
       "services": {

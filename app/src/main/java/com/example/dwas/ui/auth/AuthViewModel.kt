@@ -1,22 +1,17 @@
 package com.example.dwas.ui.auth
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableCornerSize
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.dwas.data.model.User
 import com.example.dwas.data.repository.AuthRepository
-import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.launch
 
 class AuthViewModel(private val repository: AuthRepository = AuthRepository()) : ViewModel() {
 
     private val _authState = MutableLiveData<AuthState>()
     val authState: LiveData<AuthState> = _authState
-
-    private val _userRole = MutableLiveData<String?>()
-    val userRole: LiveData<String?> = _userRole
 
     fun login(email: String, password: String) {
         _authState.value = AuthState.Loading
