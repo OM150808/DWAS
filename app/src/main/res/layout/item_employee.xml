@@ -27,7 +27,7 @@
                 android:layout_height="match_parent"
                 android:padding="10dp"
                 android:src="@drawable/ic_person"
-                app:tint="@color/smarthome_primary" />
+                app:tint="@color/black" />
         </com.google.android.material.card.MaterialCardView>
 
         <LinearLayout
@@ -41,18 +41,19 @@
                 android:id="@+id/tvEmployeeName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="serif"
                 android:text="Employee Name"
-                android:textColor="@color/smarthome_text_main"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tvEmployeeEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
+                android:fontFamily="serif"
                 android:text="employee@example.com"
-                android:textColor="@color/smarthome_text_sub"
+                android:textColor="@color/black"
+                android:alpha="0.7"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -62,7 +63,7 @@
             android:layout_height="40dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@android:drawable/ic_menu_delete"
-            app:tint="@color/error"
+            app:tint="@color/black"
             android:contentDescription="Remove Member" />
 
     </LinearLayout>

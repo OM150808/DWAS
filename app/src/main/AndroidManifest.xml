@@ -23,6 +23,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DWAS">
         <activity
+            android:name=".TimeLogsActivity"
+            android:exported="false"
+            android:label="Time Logs" />
+        <activity
+            android:name=".TeamStatsActivity"
+            android:exported="false"
+            android:label="Team Stats" />
+        <activity
             android:name=".NotificationActivity"
             android:exported="false"
             android:label="Notifications" />
@@ -47,6 +55,10 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="PASTE_YOUR_API_KEY_HERE" />
     </application>
 
 </manifest>

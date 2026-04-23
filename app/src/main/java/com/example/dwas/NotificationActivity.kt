@@ -28,7 +28,7 @@ class NotificationActivity : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
         rvNotifications = findViewById(R.id.rvNotifications)
 
-        findViewById<View>(R.id.toolbar).setOnClickListener { finish() }
+        findViewById<View>(R.id.btnBack).setOnClickListener { finish() }
 
         setupRecyclerView()
         fetchNotifications()

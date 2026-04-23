@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_employee_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_employee_tasks"
+        android:icon="@drawable/ic_check_circle"
+        android:title="Tasks" />
+    <item
+        android:id="@+id/nav_employee_history"
+        android:icon="@drawable/ic_clock"
+        android:title="History" />
+    <item
+        android:id="@+id/nav_employee_profile"
+        android:icon="@drawable/ic_person"
+        android:title="Profile" />
+</menu>
