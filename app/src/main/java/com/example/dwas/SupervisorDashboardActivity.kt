@@ -22,8 +22,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.dwas.R
+import com.bumptech.glide.Glide import com.example.dwas.R
 import com.example.dwas.databinding.LayoutProfileItemBinding
 import com.example.dwas.databinding.LayoutSupervisorProfileBinding
 import com.example.dwas.ui.ProfileUiState
